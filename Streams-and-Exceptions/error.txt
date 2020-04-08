@@ -1,0 +1,18 @@
+2020-03-26 19:13:28.207
+[streamsandexceptions.LecturaEscrituraStreams.lecturaEscrituraBB(LecturaEscrituraStreams.java:106), streamsandexceptions.StreamsAndExceptions.main(StreamsAndExceptions.java:33)]
+
+2020-03-26 19:14:20.463
+[streamsandexceptions.LecturaEscrituraStreams.lecturaEscrituraBB(LecturaEscrituraStreams.java:106), streamsandexceptions.StreamsAndExceptions.main(StreamsAndExceptions.java:33)]
+
+Ruta de entradasin informar
+2020-04-06 17:30:37.628
+[streamsandexceptions.LecturaEscrituraStreams.pedirRuta(LecturaEscrituraStreams.java:46), streamsandexceptions.LecturaEscrituraStreams.leerEscribirByteByte(LecturaEscrituraStreams.java:71), streamsandexceptions.StreamsAndExceptions.main(StreamsAndExceptions.java:33)]
+
+Ruta de entradasin informar
+2020-04-06 17:32:31.595
+[streamsandexceptions.LecturaEscrituraStreams.pedirRuta(LecturaEscrituraStreams.java:46), streamsandexceptions.LecturaEscrituraStreams.leerEscribirByteByte(LecturaEscrituraStreams.java:71), streamsandexceptions.StreamsAndExceptions.main(StreamsAndExceptions.java:33)]
+
+Ruta de entrada sin informar
+2020-04-06 17:34:12.683
+[streamsandexceptions.LecturaEscrituraStreams.pedirRuta(LecturaEscrituraStreams.java:46), streamsandexceptions.LecturaEscrituraStreams.leerEscribirByteByte(LecturaEscrituraStreams.java:71), streamsandexceptions.StreamsAndExceptions.main(StreamsAndExceptions.java:33)]
+
