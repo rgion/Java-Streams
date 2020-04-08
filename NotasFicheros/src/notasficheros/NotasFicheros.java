@@ -22,13 +22,13 @@ public class NotasFicheros {
         try {
             abriryleerFichero();
         } catch (MiExcepcion ex) {
-           // Logger.getLogger(NotasFicheros.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Mensaje de error: "+ ex.getMessage());
+            // Logger.getLogger(NotasFicheros.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Mensaje de error: " + ex.getMessage());
         }
     }
 
-    public static void abriryleerFichero() throws MiExcepcion{
-        FileReader fr=null;
+    public static void abriryleerFichero() throws MiExcepcion {
+        FileReader fr = null;
         try {
             // Apertura del fichero y creacion de BufferedReader para poder
             // hacer una lectura comoda (disponer del metodo readLine()).
@@ -52,12 +52,12 @@ public class NotasFicheros {
             una línea. Además destacar que filereader y buffereader deben 
             incluirse en un bloque try, ya que estos pueden provocar excepciones
             que deben ser controladas.
-            */
-            BufferedReader br = new BufferedReader(fr,10);
+             */
+            BufferedReader br = new BufferedReader(fr, 10);
             leerFichero(br);
         } catch (Exception e) {
             //e.printStackTrace();//imprime pila de ejecución
-            throw new MiExcepcion("Error:"+e.getMessage(),e.getCause());
+            throw new MiExcepcion("Error:" + e.getMessage(), e.getCause());
         } finally {
             cerrarFichero(fr);
         }
@@ -84,15 +84,15 @@ public class NotasFicheros {
             el fichero. Siempre hay que tener un control sobre la lectura, ya 
             si continuamos leyendo cuando ha acabado el fichero provocará una
             excepción
-            */
+             */
             String vector[] = linea.split(" ");
             generarBoletin(vector);
 
         }
     }
 
-    public static void generarBoletin(String vector[]) 
-            throws IOException{
+    public static void generarBoletin(String vector[])
+            throws IOException {
         //el formato es el siguiente Pepe García Hernández 5 7 3 7 10 c-5
         //estructura del documento 
         /*---------------------------------------------
@@ -114,7 +114,7 @@ Nº de módulos suspendidos:  0
 Nº de módulos convalidados: 1
 -------------------------------------------
          */
-        /*con la escritura de ficheros es similar a la lectura. Como principal
+ /*con la escritura de ficheros es similar a la lectura. Como principal
         detalle a destacar es que si queremos añadir información al final del 
         fichero, podemos hacerlo incorporando el flag true:
         FileWriter fichero = new FileWriter("D:\\mifichero.txt,true);
@@ -122,11 +122,11 @@ Nº de módulos convalidados: 1
         fichero lo crea, y además lo abre en modo escritura. Si ya existe, y 
         tenemos el flag a true, añade información. Si ya existe y no añadimos el 
         flag, machaca el fichero con la información que pudiera tener
-        */
-        
+         */
+
         FileWriter fichero = new FileWriter("notas\\"
                 + vector[0] + vector[1] + vector[2] + ".txt");
-        PrintWriter pw = new PrintWriter(fichero);        
+        PrintWriter pw = new PrintWriter(fichero);
         int convalidadas = 0;
         int aprobadas = 0;
         int suspendidas = 0;
@@ -155,14 +155,15 @@ Nº de módulos convalidados: 1
             }
         }
         pw.println("------------------------------------------");
-        pw.println("Nº de módulos aprobados:\t"+aprobadas);
-        pw.println("Nº de módulos suspendidos:\t"+suspendidas);
-        pw.println("Nº de módulos convalidados:\t"+convalidadas);
+        pw.println("Nº de módulos aprobados:\t" + aprobadas);
+        pw.println("Nº de módulos suspendidos:\t" + suspendidas);
+        pw.println("Nº de módulos convalidados:\t" + convalidadas);
         pw.println("------------------------------------------");
         //como siempre CERRAMOS UN FICHERO
         cerrarFicheroEscritura(pw);
     }
-    public static void cerrarFicheroEscritura(PrintWriter pw) 
+
+    public static void cerrarFicheroEscritura(PrintWriter pw)
             throws IOException {
         // En el finally cerramos el fichero, para asegurarnos
         // que se cierra tanto si todo va bien como si salta
@@ -174,5 +175,5 @@ Nº de módulos convalidados: 1
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-    }    
+    }
 }

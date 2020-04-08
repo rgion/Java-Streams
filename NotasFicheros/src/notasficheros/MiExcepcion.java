@@ -9,10 +9,9 @@ package notasficheros;
  *
  * @author Rafael
  */
-public class MiExcepcion extends Exception
-{
-    public MiExcepcion (String mensaje, Throwable causa)
-    {
+public class MiExcepcion extends Exception {
+
+    public MiExcepcion(String mensaje, Throwable causa) {
         super(mensaje, causa);
     }
 }

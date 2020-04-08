@@ -23,18 +23,17 @@ import notasficheros.MiExcepcion;
  */
 public class NotasFicheros2 {
 
-
     public static void main(String[] args) {
         try {
             abrirFicheroLectura();
         } catch (MiExcepcion ex) {
-           // Logger.getLogger(NotasFicheros.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Mensaje de error: "+ ex.getMessage());
+            // Logger.getLogger(NotasFicheros.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Mensaje de error: " + ex.getMessage());
         }
     }
 
-    public static void abrirFicheroLectura() throws MiExcepcion{
-        FileReader fr=null;
+    public static void abrirFicheroLectura() throws MiExcepcion {
+        FileReader fr = null;
         try {
             // Apertura del fichero y creacion de BufferedReader para poder
             // hacer una lectura comoda (disponer del metodo readLine()).
@@ -58,12 +57,12 @@ public class NotasFicheros2 {
             una línea. Además destacar que filereader y buffereader deben 
             incluirse en un bloque try, ya que estos pueden provocar excepciones
             que deben ser controladas.
-            */
-            BufferedReader br = new BufferedReader(fr,10);
+             */
+            BufferedReader br = new BufferedReader(fr, 10);
             leerFichero(br);
         } catch (Exception e) {
             e.printStackTrace();//imprime pila de ejecución
-            throw new MiExcepcion("Error:"+e.getMessage(),e.getCause());
+            throw new MiExcepcion("Error:" + e.getMessage(), e.getCause());
         } finally {
             cerrarFichero(fr);
         }
@@ -90,15 +89,15 @@ public class NotasFicheros2 {
             el fichero. Siempre hay que tener un control sobre la lectura, ya 
             si continuamos leyendo cuando ha acabado el fichero provocará una
             excepción
-            */
+             */
             String vector[] = linea.split(" ");
             generarBoletin(vector);
 
         }
     }
 
-    public static void generarBoletin(String vector[]) 
-            throws IOException, ClassNotFoundException{
+    public static void generarBoletin(String vector[])
+            throws IOException, ClassNotFoundException {
         //el formato es el siguiente Pepe García Hernández 5 7 3 7 10 c-5
         //estructura del documento 
         /*---------------------------------------------
@@ -120,7 +119,7 @@ Nº de módulos suspendidos:  0
 Nº de módulos convalidados: 1
 -------------------------------------------
          */
-        /*con la escritura de ficheros es similar a la lectura. Como principal
+ /*con la escritura de ficheros es similar a la lectura. Como principal
         detalle a destacar es que si queremos añadir información al final del 
         fichero, podemos hacerlo incorporando el flag true:
         FileWriter fichero = new FileWriter("D:\\mifichero.txt,true);
@@ -128,25 +127,25 @@ Nº de módulos convalidados: 1
         fichero lo crea, y además lo abre en modo escritura. Si ya existe, y 
         tenemos el flag a true, añade información. Si ya existe y no añadimos el 
         flag, machaca el fichero con la información que pudiera tener
-        */
-        ObjectOutputStream fsal=new ObjectOutputStream(
+         */
+        ObjectOutputStream fsal = new ObjectOutputStream(
                 new FileOutputStream("notas\\"
-                + vector[0] + vector[1] + vector[2] + ".txt"));        
-        NotasAlumnos alumno1 = new NotasAlumnos(vector[0], vector[1],vector[2], 
-                vector[3],vector[4],vector[5],vector[6],vector[7],vector[8]);
+                        + vector[0] + vector[1] + vector[2] + ".txt"));
+        NotasAlumnos alumno1 = new NotasAlumnos(vector[0], vector[1], vector[2],
+                vector[3], vector[4], vector[5], vector[6], vector[7], vector[8]);
         fsal.writeObject(alumno1);
         fsal.close();
         //leemos el objeto que acabamos de escribir y lo mostramos por pantalla
-        ObjectInputStream fent=new ObjectInputStream(
+        ObjectInputStream fent = new ObjectInputStream(
                 new FileInputStream("notas\\"
-                + vector[0] + vector[1] + vector[2] + ".txt"));        
+                        + vector[0] + vector[1] + vector[2] + ".txt"));
         NotasAlumnos alumno = new NotasAlumnos();
-        alumno=(NotasAlumnos) fent.readObject();
+        alumno = (NotasAlumnos) fent.readObject();
         System.out.println("---------------------------------------------");
         System.out.println("Boletín de notas IES FBMOLL");
         System.out.println("---------------------------------------------");
-        System.out.println("Alumno: " + alumno.getNombre() + " " + 
-                alumno.getApellido1() + " " + alumno.getApellido2());
+        System.out.println("Alumno: " + alumno.getNombre() + " "
+                + alumno.getApellido1() + " " + alumno.getApellido2());
         System.out.println("------------------------------------");
         System.out.println("Módulo                        Nota");
         System.out.println("--------------------------   -------");
@@ -155,10 +154,11 @@ Nº de módulos convalidados: 1
         System.out.println("Entornos de desarrollo" + "\t \t" + alumno.getEd());
         System.out.println("Base de datos" + "\t \t \t" + alumno.getBbdd());
         System.out.println("Sistemas informáticos" + "\t \t" + alumno.getSi());
-        System.out.println("FOL" + "\t \t \t \t" + alumno.getFol());        
-        fent.close();                
+        System.out.println("FOL" + "\t \t \t \t" + alumno.getFol());
+        fent.close();
     }
-    public static void cerrarFicheroEscritura(PrintWriter pw) 
+
+    public static void cerrarFicheroEscritura(PrintWriter pw)
             throws IOException {
         // En el finally cerramos el fichero, para asegurarnos
         // que se cierra tanto si todo va bien como si salta
@@ -170,7 +170,5 @@ Nº de módulos convalidados: 1
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-    }    
+    }
 }
-    
-

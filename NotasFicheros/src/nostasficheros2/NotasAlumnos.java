@@ -11,17 +11,18 @@ import java.io.Serializable;
  *
  * @author Rafael
  */
-public class NotasAlumnos implements Serializable{
-/*Pepe García Hernández 5 7 3 7 10 c-5   
+public class NotasAlumnos implements Serializable {
+
+    /*Pepe García Hernández 5 7 3 7 10 c-5   
 Lenguaje de marcas         5
 Programación                   7
 Entornos de desarrollo     3
 Base de datos                  7
 Sistemas informáticos      10
-FOL   */ 
+FOL   */
     private String nombre;
     private String apellido1;
-    private String apellido2;    
+    private String apellido2;
     private String lm;
     private String prog;
     private String ed;
@@ -115,6 +116,5 @@ FOL   */
     public void setFol(String fol) {
         this.fol = fol;
     }
-    
-    
+
 }
