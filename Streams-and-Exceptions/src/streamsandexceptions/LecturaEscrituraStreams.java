@@ -186,6 +186,11 @@ public final class LecturaEscrituraStreams {
                 if (lineaLeida != null) {
                     peliculas = lineaLeida.split("\\{"); //divide la línea por '{' (películas)
                     for (int j = 0; j < peliculas.length; j++) {
+                        /*   there are 12 characters with special meanings: the backslash \, the caret ^, the dollar sign $, the period or dot ., the vertical bar or pipe symbol |, the question mark ?, the asterisk or star *, the plus sign +, the opening parenthesis (, the closing parenthesis ), and the opening square bracket [, the opening curly brace {, These special characters are often called "metacharacters".
+
+                        So, if you want to split on e.g. period/dot . which means "any character" in regex, use either backslash
+                        justo, para meter algunos caracteres tienes que poner las //
+                        https://stackoverflow.com/questions/3481828/how-to-split-a-string-in-java*/
                         texto = peliculas[j].split("#"); //divide la línea por '#' (campos)
                         for (int k = 0; k < texto.length; k++) {
                             escritorBuffer.append(texto[k]);
